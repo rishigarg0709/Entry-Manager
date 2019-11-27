@@ -22,9 +22,63 @@ git clone https://github.com/rishigarg0709/entry-management-system.git
 ```
 2.	Open the Terminal (Linux & MacOS) or PowerShell (Windows) and change directory to the project folder.
 3.	Type ‘npm install’ in the Terminal (PowerShell) and press Enter. All the dependencies would be installed.
-4.	Go back to the Terminal (PowerShell) and be sure that you are pointing inside the project folder. To open the application, type ‘node app.js’ and press Enter.
+4.	Go back to the Terminal (PowerShell) and be sure that you are pointing inside the project folder. To open the application, type ‘node server.js’ and press Enter.
 5.	The application should be live on the local port 4800.  
 6.	Type http://localhost:4800/ into a browser.
 7.	Now you should be inside the application
 
 # How to use it 📖
+### Host Page
+
+Firstly our application will ask for Host Details like his Name, Email and Password.
+
+![Dashboard](https://github.com/rishigarg0709/Entry-Manager/blob/master/Readme_images/Host.png)
+
+### Dashboard
+
+Our Application will now ask Visitor wether he wants to Checkin or Checkout and he will choose option accordingly.
+Also we have given a option of 'change host' by which a new user can become a host 
+
+![Dashboard](https://github.com/rishigarg0709/Entry-Manager/blob/master/Readme_images/Dashboard.png)
+
+If host has already checked in his information then our application will automatically redirect us to Dashboard page otherwise it will redirect us to Host Page
+
+### Checkin Page
+
+Our Application will ask visitor to enter his details like Name, Email and Phone Number which when submited will trigger an email to the email id provided by the host.
+
+![Dashboard](https://github.com/rishigarg0709/Entry-Manager/blob/master/Readme_images/Checkin.png)
+
+If visitor enters an email id which is already checked in but not checked out then it will not trigger any email.
+
+### Checkout Page
+
+Our Application will ask visitor to enter his details like Email id and Address visited which when submited will trigger an email to the visitor himself providing him his details like name, email, phone number, Checkin Time, Checkout Time, Host Name and Address visited.
+
+![Dashboard](https://github.com/rishigarg0709/Entry-Manager/blob/master/Readme_images/Checkout.png)
+
+If visitor does not enters same email id as he entered while check in then it will not trigger any email.
+
+# Technologies
+
+### Backend
+- NodeJs
+- ExpressJS
+
+### Frontend 
+- HTML
+- CSS
+- Bootsrap
+
+### Database
+- MongoDB
+
+#### Nodemailer module has been used for generating emails.
+
+# Limitations
+Our Application will not trigger a SMS as it required use of various paid API's eg. Nexmo
+
+# License 
+Free to use, copy and distribute. :money_with_wings:
+
+
