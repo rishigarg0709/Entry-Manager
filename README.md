@@ -18,7 +18,7 @@ When visitor will check-in it will trigger an email to the host informing him of
 # Installing - easy 🔌
 1.	Download the repository
 ```
-git clone https://github.com/rishigarg0709/entry-management-system.git
+git clone https://github.com/rishigarg0709/Entry-Manager.git
 ```
 2.	Open the Terminal (Linux & MacOS) or PowerShell (Windows) and change directory to the project folder.
 3.	Type ‘npm install’ in the Terminal (PowerShell) and press Enter. All the dependencies would be installed.
