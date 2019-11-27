@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title> Host Form</title> 
+		
+		
+<link rel="stylesheet"
+href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity= "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous">	 
+		
+<link rel="stylesheet" type="text/css" href="style.css"> 
+		
+</head> 
+<body> 
+	
+	<br> 
+	<br> 
+	<br> 
+	<div class="container" > 
+		<div class="row"> 
+		<div class="col-md-3"> 
+					
+		</div> 
+				
+        <div class="col-md-6 main"> 
+            <h1 style="text-align:center;"><b>Entry Management System</b></h1>
+            <br>
+            <br>
+            <h2 style="text-align:center;"><b>Visitor Checkout</b></h2>
+            <br>
+            <h4 style="text-align:center;">Note : Please enter same email-id as you entered while checkin</h2>
+            <br>
+
+            <form action="/mycheckout" method="post"> 
+                
+                <div class="form-group">
+
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter addres you visited">
+                </div>
+                <centre><button type="submit" class="btn btn-primary" style="text-align:center;">Submit</button></centre>
+                </form>
+                <br>
+            <h4 style="text-align:center;">Note : Your information with Checkin and Checkout Time will be sent to You</h2>
+            <br>
+                        
+            </div>
+						
+		<div class="col-md-3"> 
+		</div> 
+				
+	</div> 
+	</div> 
+</body> 
+</html>	 

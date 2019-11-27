@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title> Checkin and Checkout</title> 
+<link rel="stylesheet"
+href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity= "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous"> 
+		
+<link rel="stylesheet" type="text/css" href="style.css"> 
+</head> 
+	<body>  
+	<div class="container" > 
+		<div class="row"> 
+		<div class="col-md-3"> 
+        </div> 
+        <h1 style="text-align:center;"><b>Entry Management System</b></h1>
+        <a href="/changehost" class="d-inline-flex"><h2>Change Host</h2></a>
+        <br>
+        <h2 style="text-align:center;"><b>Welcome Visitor</b></h2>
+        <br>
+        </br>
+        
+        <form action="/checkin" method="GET">
+            <div class="form-group">
+                <h3 >If you have just arrived then please :</h3>
+                <button type="submit" class="btn btn-primary" style="text-align:center;">Checkin</button>            
+            </div>
+        </form>
+        <br>
+        <form action="/checkout" method="GET">
+            <div class="form-group"> 
+                <h3 >If you are leaving then do :</h3>
+                <div class="wrapper">
+                    <button type="submit" class="btn btn-primary" style="text-align:center;">Checkout</button>      
+                </div>      
+            </div>
+        </form>
+        <br>
+        <br>
+        
+		<div class="col-md-3"> 
+		</div> 
+				
+		</div> 
+    </div> 
+    
+</body> 
+</html> 
