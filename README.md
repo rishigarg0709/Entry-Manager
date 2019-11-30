@@ -10,10 +10,11 @@ When visitor will check-in it will trigger an email to the host informing him of
 5. Host name
 6. Address visited.
 
-# Prerequisites
-- [x] Node.js 6.9.1 or later - install from https://nodejs.org/
+# Live demo 🚀
+http://entrymanager.herokuapp.com/
 
-- [x] MongoDB 4.2.1 or later - install from https://www.mongodb.com/download-center/community   
+# Prerequisites
+- [x] Node.js 6.9.1 or later - install from https://nodejs.org/  
 
 # Installing - easy 🔌
 1.	Download the repository
@@ -71,7 +72,7 @@ If visitor does not enters same email id as he entered while check in then it wi
 - Bootsrap
 
 ### Database
-- MongoDB
+- MongoDB in the cloud with MongoDB Atlas
 
 #### Nodemailer module has been used for generating emails.
 
