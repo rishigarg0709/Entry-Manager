@@ -1,11 +1,20 @@
 const express = require('express')
 const app = express()
-const { MongoClient } = require('mongodb')
-const MONGO_URL = "mongodb://localhost:27017"
 const Nexmo = require('nexmo')
 const Socketio=require('socket.io')
 var nodemailer = require('nodemailer');
 var port = process.env.PORT || 4800;
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://rishigarg0709:rishigarg0709@cluster0-peisc.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 
 
 app.use(express.urlencoded({
@@ -42,15 +51,16 @@ tls: {
 */
 
 let taskdb
-let hostcol
+let testcol
 let checkintab
-let checkouttab
 
-MongoClient.connect(MONGO_URL, (err, client) => {
+
+MongoClient.connect(uri, (err, client) => {
   if (err) throw err;
 
   taskdb = client.db("taskdb")
   checkintab = taskdb.collection("checkintab")
+  testcol = taskdb.collection("testcol")
 })
     
 app.post("/host", (req, res) => {
@@ -86,20 +96,22 @@ app.post("/mycheckin", (req, res) => {
         if (err) throw err;
         if(result)
         {
-            res.send('Visitor has already checked in!');
+            res.send('Visitor with this email-id has already checked in and not checked out yet !');
         }
         else
         {
             checkintab.insertOne(data, (err, results) => {
                 if(err) throw err
-                console.log(results)
+            })
+            testcol.insertOne(data, (err, results) => {
+                if(err) throw err
             })
 
             //code for sending mail
             var mailOptions = {
                 from: 'myentrymanager@gmail.com',
                 to: localStorage.getItem('email'),
-                subject: 'visitors checkin details',
+                subject: 'Visitors Checkin Details',
                 html: '<ul><li> Name :'+name + ' </li><li>Email: '+email +'</li><li>Phone :' + phone +'</li><li>Check-in :' + d +'</li><li>Host :' + localStorage.getItem('name') +'</li></ul>'
             };
             
@@ -107,7 +119,7 @@ app.post("/mycheckin", (req, res) => {
                 if (error) {
                 console.log('Error--> ' + error);
                 } else {
-                console.log('Email sent: ' + info.response);
+                console.log('Email sent successfully !! : ' + info.response);
                 }
             });
             return res.redirect('/choice'); 
@@ -144,15 +156,15 @@ app.post("/mycheckout", (req, res) => {
             var mailOptions = {
                 from: 'vistorsentrymanager@gmail.com',
                 to: email,
-                subject: 'visitors checkout details',
+                subject: 'Visitors Checkout Details',
                 html: '<ul><li> Name :'+result.name + ' </li><li>Email: '+result.email +'</li><li>phone: ' + result.phone +'</li><li>Checkin: ' + result.date +'</li><li>Checkout: ' + dout +'</li><li>host: ' + result.host +'</li><li>address: ' + address +'</li></ul>'
               };
               
               transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
-                  console.log('Error--- ' + error);
+                  console.log('Error ---> ' + error );
                 } else {
-                  console.log('Email sent: ' + info.response);
+                  console.log('Email sent successfully !! : ' + info.response);
                 }
               });
               checkintab.deleteOne({'email' :req.body.email })
@@ -203,6 +215,6 @@ app.get("/changehost", (req, res) => {
 app.use(express.json())
 
 app.listen(port, () => {
-    console.log("server running")
+    console.log("server running at port 4800")
 }) 
 
