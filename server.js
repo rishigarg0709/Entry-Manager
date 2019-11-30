@@ -184,15 +184,15 @@ app.get("/choice", (req, res) => {
     name=localStorage.getItem('name')
     mail=localStorage.getItem('email')
     phone=localStorage.getItem('phone')
-    res.sendFile(__dirname + '/choice.html')
+    res.sendFile(__dirname + '/public' + '/choice.html')
 })
 
 app.get("/checkin", (req, res) => {
-    res.sendFile(__dirname + '/checkin.html')
+    res.sendFile(__dirname + '/public' + '/checkin.html')
 })
 
 app.get("/checkout", (req, res) => {
-    res.sendFile(__dirname + '/checkout.html')
+    res.sendFile(__dirname + '/public' + '/checkout.html')
 })
 
 app.get("/", (req, res) => {
@@ -200,7 +200,7 @@ app.get("/", (req, res) => {
     {
         return res.redirect('/choice'); 
     }
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname  + '/public'  + '/index.html')
 })
 
 app.get("/changehost", (req, res) => {
@@ -209,7 +209,7 @@ app.get("/changehost", (req, res) => {
     localStorage.removeItem('email')
     localStorage.removeItem('phone')
     
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/public' +'/index.html')
 })
 
 app.use(express.json())
