@@ -76,9 +76,6 @@ If visitor does not enters same email id as he entered while check in then it wi
 
 #### Nodemailer module has been used for generating emails.
 
-# Limitations
-Our Application will not trigger a SMS as it required use of various paid API's eg. Nexmo
-
 # License 
 Free to use, copy and distribute. :money_with_wings:
 
